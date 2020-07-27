@@ -153,7 +153,7 @@ function Menu (){
     //stroke(255)
     //noStroke()
     fill('red')
-    text("ESC para voltar",20, 30)
+    text("ESC para voltar / ENTER para escolher",20, 30)
     text("OBS: use as setas do teclado"+"\n"+" para trocar de opção!" ,250 ,550)
     
 }  //AJUSTAR IMAGENS
@@ -247,7 +247,7 @@ function game(){ //ADICIONAR HIGHSCORE
   //COLISÃO & PONTUAÇÃO
   if (dist(x , y , x2, y2)<=r1+r2){
     p++
-    x2 = random(800 , 900)
+    x2 = random(1 , 900)
     y2 = random(365 , 560)
   }
   //VICT OU DERR
@@ -334,9 +334,9 @@ function introtwo(){
   image(capo , 0 , 300 , 220 , 220)
   textSize(30) 
   textSize(20)
-  text("O acarajé é uma especialidade gastronômica das culinárias"+"\n"+"africana e afro-brasileira. Trata-se de um bolinho feito de massa"+"\n"+"de feijão-fradinho, cebola e sal, e frito em azeite de dendê."+"\n"+"No continente africano e nos templos de matriz africana no Brasil é conhecido como akará."+"\n"+"Bastante conhecido no Brasil e no mundo." , 220 , 20)
+  text("O acarajé é uma especialidade gastronômica das culinárias"+"\n"+"africana e afro-brasileira. Trata-se de um bolinho feito de massa"+"\n"+"de feijão-fradinho, cebola e sal, e frito em azeite de dendê."+"\n"+"No continente africano e nos templos de matriz africana"+"\n"+"no Brasil é conhecido como akará. Bastante conhecido no Brasil"+"\n"+",e no mundo." , 220 , 20)
   
-  text("- A capoeira ou capoeiragem é uma expressão cultural brasileira"+"\n"+"que mistura arte marcial, esporte, cultura popular,"+"\n"+"dança e música.Capoeira é um esporte nas escolas "+"\n"+"públicas e privadas do Brasil." , 220,320)
+  text("- A capoeira ou capoeiragem é uma expressão cultural brasileira"+"\n"+"que mistura arte marcial, esporte, cultura popular,"+"\n"+"dança e música.Capoeira é um esporte praticado nas escolas "+"\n"+"públicas e privadas no Brasil." , 220,320)
   textSize(40)
   text("CAPOEIRA",10, 550 )
   
