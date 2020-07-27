@@ -334,7 +334,7 @@ function introtwo(){
   image(capo , 0 , 300 , 220 , 220)
   textSize(30) 
   textSize(20)
-  text("O acarajé é uma especialidade gastronômica das culinárias"+"\n"+"africana e afro-brasileira. Trata-se de um bolinho feito de massa"+"\n"+"de feijão-fradinho, cebola e sal, e frito em azeite de dendê."+"\n"+"No continente africano e nos templos de matriz africana"+"\n"+"no Brasil é conhecido como akará. Bastante conhecido no Brasil"+"\n"+",e no mundo." , 220 , 20)
+  text("O acarajé é uma especialidade gastronômica das culinárias"+"\n"+"africana e afro-brasileira. Trata-se de um bolinho feito de massa"+"\n"+"de feijão-fradinho, cebola e sal, e frito em azeite de dendê."+"\n"+"No continente africano e nos templos de matriz africana"+"\n"+"no Brasil é conhecido como akará. Bastante conhecido no Brasil,"+"\n"+"e no mundo." , 220 , 20)
   
   text("- A capoeira ou capoeiragem é uma expressão cultural brasileira"+"\n"+"que mistura arte marcial, esporte, cultura popular,"+"\n"+"dança e música.Capoeira é um esporte praticado nas escolas "+"\n"+"públicas e privadas no Brasil." , 220,320)
   textSize(40)
