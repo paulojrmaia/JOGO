@@ -6,10 +6,9 @@ y = 520   //  GA
 r1 = 30  //    DOR
 jump = 0  //
 
-x2 = 580
-y2 = 400
-r2 = 35
-
+x2 = 580 //OB
+y2 = 400 //	 JE
+r2 = 35  //		 TO
 movX = 1 // MOVIMENTO OBJETO
 
 p = 0// PONTOS , OBS: 10 pontos por fase
@@ -82,9 +81,7 @@ function draw() {
     win()  
   if(V == 2)
     lose()  
-
 }
-
 function keyPressed(){
   if(key=="ArrowUp"){
     yM = yM - 100
@@ -108,6 +105,7 @@ function keyPressed(){
     clear()
   }
   if(keyCode == '32'){
+		//ESPAÇO
     te++
   }
 }  
@@ -135,28 +133,57 @@ function keyTyped(){
     te = 0
   }
 }
+function intro(){
+  image(mach ,0 , 0 , 800 , 600 )
+  cc++
+  segu2 = cc/60
+  if(segu2>2 && segu2<5){
+    fill('black')
+    text("BARRA DE ESPAÇO P/ PASSAR!",100,560)
+  }
+  if(segu2>5){
+    segu2 = 0
+    cc = 0
+  }
+  strokeWeight(5)
+  stroke(0)
+  fill('yellow')
+  textSize(40)
+  text("Este jogo tem como proposta: caminhar por"+"\n"+" elementos e personagens da cultura"+"\n"+" afro-brasileira mostrando aos alunos uma"+"\n"+" diversidade de contribuições da cultura"+"\n"+" negra à formação da cultura brasileira. "+"\n"+"Por Exemplo:",10 ,50 )
+  text("Machado de Assis um escritor brasileiro,"+"\n"+"considerado por muitos críticos, estudiosos,"+"\n"+"escritores e leitores um dos maiores senão"+"\n"+"o maior nome da literatura do Brasil." , 20 , 360)
+
+}
+
+function introtwo(){
+  image(alv ,0 ,10 )
+  image(capo , 0 , 300 , 220 , 220)
+  textSize(30) 
+  textSize(20)
+  text("O acarajé é uma especialidade gastronômica das culinárias"+"\n"+"africana e afro-brasileira. Trata-se de um bolinho feito de massa"+"\n"+"de feijão-fradinho, cebola e sal, e frito em azeite de dendê."+"\n"+"No continente africano e nos templos de matriz africana"+"\n"+"no Brasil é conhecido como akará. Bastante conhecido no Brasil,"+"\n"+"e no mundo." , 220 , 20)
+  
+  text("- A capoeira ou capoeiragem é uma expressão cultural brasileira"+"\n"+"que mistura arte marcial, esporte, cultura popular,"+"\n"+"dança e música. Capoeira é um esporte praticado nas escolas "+"\n"+"públicas e privadas no Brasil." , 220,320)
+  textSize(40)
+  text("CAPOEIRA",10, 550 )
+  
+}
 
 function Menu (){
     stroke(0)
     image( menu,0 ,0 ,800 ,600 )
     fill(255)
-    rect( xM , yM , 220 , 60 )//OBJETO #1)
-    //rect( 10 , 55 , 590 , 60 )
+    rect( xM , yM , 220 , 60 )//RETÂNGULO DE ESCOLHA
     fill(0)
     textSize(48)
     textSize(40)
-    text("Jogar",350,250)
-    text("Instruções",310,350)
-    text("Créditos",325,450)
+    text("Jogar",350,250)	//op = 1
+    text("Instruções",310,350)//op = 2
+    text("Créditos",325,450)//op = 3
     textSize(25)
-    //strokeWeight(3)
-    //stroke(255)
-    //noStroke()
     fill('red')
     text("ESC para voltar / ENTER para escolher",20, 30)
     text("OBS: use as setas do teclado"+"\n"+" para trocar de opção!" ,250 ,550)
     
-}  //AJUSTAR IMAGENS
+}
 
 function instru(){
   background(255)
@@ -168,7 +195,7 @@ function instru(){
   text("9º ANO DO FUNDAMENTAL "+"\n"+"MATÉRIA: História"+"\n"+"Habilidade BNCC:(EF09HI04)",20 , 90)
   text("-Seu objetivo é pegar os Acarajés no cénario, "+"\n"+"use as SETAS para controlar o personagem"+"\n"+"Serão três fases, colete pelo menos"+"\n"+"10 pontos para passar"+"\n"+"QUALQUER ERRO RECARREGUE A PÁGINA!", 20 , 230)
 
-}//ADAPTAR AO MODELO ATUAL
+}
 
 function creditos(){  
   background('black')
@@ -186,7 +213,6 @@ function game(){ //ADICIONAR HIGHSCORE
   frameC++//Tempo
   count++//Animação - Corrida
   time = parseInt((frameC/60))//SEGUNDOS
-  //background(255);
   image(bg[i] , bgmov , 0 , 1000 , 600)//BACKGROUND
   if(bgmov>-200){
     bgmov = bgmov -0.2//Movivemto do Cénario
@@ -196,18 +222,16 @@ function game(){ //ADICIONAR HIGHSCORE
   }
   noFill()
   noStroke()
-  image(jog[walk%5] , x-50 , y-75 , 100 ,100 )//IMG.JOGADOR
+  image(jog[walk%6] , x-50 , y-75 , 100 ,100 )//IMG.JOGADOR
   ellipse( x , y , 2*r1 ,2*r1 )//JOGADOR
   if( count>30) {
     walk++
     count = 0
   }
   fill(255)
-  ellipse( x2 , y2 , 2*r2 , 2*r2)//OBSTACULO
-  image(alv , x2-28 , y2-28, 55 , 55 )//IMG. OBSTACULO
-  
-  
-  x2 = x2 - movX
+  ellipse( x2 , y2 , 2*r2 , 2*r2)//ALVO
+  image(alv , x2-28 , y2-28, 55 , 55 )//IMG. ALVO
+  x2 = x2 - movX //Movimento do Alvo
   if(x2 < 0){
   movX=-1
   }
@@ -224,14 +248,11 @@ function game(){ //ADICIONAR HIGHSCORE
   } //Movimento JOGADOR
   if( keyIsDown ( RIGHT_ARROW) ) {
     x += 2
-  }
-  if( keyIsDown(32)){ 
-    //32==ESPAÇO
-  }
+	}
   fill('green')
   rect(-10 , 550 , 2000 ,40)
   y = y+jump//SOBE E DESCE: Formula
-  //LIMITES DO PULO 
+  //LIMITES DO PULO e tela
   if(y<400){
     jump = +2
   }
@@ -308,36 +329,4 @@ function lose(){
   text("Tente novamente! [T]" , 200 , 300)
 }
 
-function intro(){
-  image(mach ,0 , 0 , 800 , 600 )
-  cc++
-  segu2 = cc/60
-  if(segu2>2 && segu2<5){
-    fill('black')
-    text("BARRA DE ESPAÇO P/ PASSAR!",100,560)
-  }
-  if(segu2>5){
-    segu2 = 0
-    cc = 0
-  }
-  strokeWeight(5)
-  stroke(0)
-  fill('yellow')
-  textSize(40)
-  text("Este jogo tem como proposta: caminhar por"+"\n"+" elementos e personagens da cultura"+"\n"+" afro-brasileira mostrando aos alunos uma"+"\n"+" diversidade de contribuições da cultura"+"\n"+" negra à formação da cultura brasileira. "+"\n"+"Por Exemplo:",10 ,50 )
-  text("Machado de Assis um escritor brasileiro,"+"\n"+"considerado por muitos críticos, estudiosos,"+"\n"+"escritores e leitores um dos maiores senão"+"\n"+"o maior nome da literatura do Brasil." , 20 , 360)
 
-}
-
-function introtwo(){
-  image(alv ,0 ,10 )
-  image(capo , 0 , 300 , 220 , 220)
-  textSize(30) 
-  textSize(20)
-  text("O acarajé é uma especialidade gastronômica das culinárias"+"\n"+"africana e afro-brasileira. Trata-se de um bolinho feito de massa"+"\n"+"de feijão-fradinho, cebola e sal, e frito em azeite de dendê."+"\n"+"No continente africano e nos templos de matriz africana"+"\n"+"no Brasil é conhecido como akará. Bastante conhecido no Brasil,"+"\n"+"e no mundo." , 220 , 20)
-  
-  text("- A capoeira ou capoeiragem é uma expressão cultural brasileira"+"\n"+"que mistura arte marcial, esporte, cultura popular,"+"\n"+"dança e música. Capoeira é um esporte praticado nas escolas "+"\n"+"públicas e privadas no Brasil." , 220,320)
-  textSize(40)
-  text("CAPOEIRA",10, 550 )
-  
-}
