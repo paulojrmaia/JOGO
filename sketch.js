@@ -1,5 +1,4 @@
-var imgEU
-var imgCla
+
 
 x = 70   //JO
 y = 520   //  GA
@@ -22,7 +21,9 @@ CT = 0
 cc = 0
 segu2 = 0
 
-jog = []//RUN FOREST!
+var imgEU //CREDITOS
+var imgCla //CREDITOS
+jog = []//RUN!
 bg = []//BACKGROUND
 winner = [] //IMAGENS WIN
 
@@ -131,6 +132,7 @@ function keyTyped(){
   }
   if(key === 't'){
     te = 0
+    i = 0
   }
 }
 function intro(){
@@ -209,7 +211,7 @@ function creditos(){
   image(imgCla, 100 , 200);
 }
 
-function game(){ //ADICIONAR HIGHSCORE
+function game(){ 
   frameC++//Tempo
   count++//Animação - Corrida
   time = parseInt((frameC/60))//SEGUNDOS
